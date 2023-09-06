@@ -12,7 +12,7 @@ import com.lk.api.annotation.*;
  * 司机
  *
  * @author bym
- * @date 2023-09-06 10:25:40
+ * @date 2023-09-06 16:11:26
  */
 @Data
 @TableName("drivers")
@@ -20,7 +20,7 @@ import com.lk.api.annotation.*;
 public class DriversEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    @TableId(type = IdType.UUID)
+    @TableId(type = IdType.AUTO)
     @LKAProperty(value = "",description ="")
     private Integer id;
     @LKAProperty(value = "司机",description ="司机")
@@ -34,16 +34,19 @@ public class DriversEntity implements Serializable {
     @LKAProperty(value = "目的地",description ="目的地")
     private String dest;
     @LKAProperty(value = "装备数",description ="装备数")
-    private Integer equipmentCount;
+    private Integer equipmentNumber;
     @LKAProperty(value = "人数",description ="人数")
-    private Integer pCount;
+    private Integer peopleNumber;
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     @LKAProperty(value = "出发日期",description = "yyyy-MM-dd HH:mm:ss")
     private Date goDate;
     @LKAProperty(value = "备注",description ="备注")
     private String remake;
-    @LKAProperty(value = "0正在拼 1已拼成",description ="0正在拼 1已拼成")
-    @TableLogic(value = "0", delval = "1")
+    @LKAProperty(value = "0正在拼 1已拼成 2已过期",description ="0正在拼 1已拼成 2已过期")
+    // @TableLogic(value = "0", delval = "1")
     private Integer status;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @LKAProperty(value = "",description = "yyyy-MM-dd HH:mm:ss")
+    private Date createDate;
 
 }

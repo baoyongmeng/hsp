@@ -20,7 +20,7 @@ import com.lk.api.annotation.*;
 public class DriversPassengerRelationEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    @TableId(type = IdType.UUID)
+    @TableId(type = IdType.AUTO)
     @LKAProperty(value = "",description ="")
     private Integer id;
     @LKAProperty(value = "司机id",description ="司机id")

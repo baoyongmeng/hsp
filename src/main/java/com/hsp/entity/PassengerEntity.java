@@ -20,7 +20,7 @@ import com.lk.api.annotation.*;
 public class PassengerEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    @TableId(type = IdType.UUID)
+    @TableId(type = IdType.AUTO)
     @LKAProperty(value = "",description ="")
     private Integer id;
     @LKAProperty(value = "姓名",description ="姓名")
@@ -34,7 +34,7 @@ public class PassengerEntity implements Serializable {
     @LKAProperty(value = "目的地",description ="目的地")
     private String dest;
     @LKAProperty(value = "0正在拼 1已拼成",description ="0正在拼 1已拼成")
-    @TableLogic(value = "0", delval = "1")
+    // @TableLogic(value = "0", delval = "1")
     private Integer status;
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     @LKAProperty(value = "出发日期",description = "yyyy-MM-dd HH:mm:ss")
