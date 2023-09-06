@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hsp.dao.DriversPassengerRelationDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.hsp.entity.DriversPassengerRelationEntity" id="driversPassengerRelationMap">
+        <result property="id" column="id"/>
+        <result property="driversId" column="drivers_id"/>
+        <result property="passengerId" column="passenger_id"/>
+    </resultMap>
+
+    <select id="listIncludeDel" resultType="com.hsp.entity.DriversPassengerRelationEntity">
+        SELECT * FROM drivers_passenger_relation
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="driversId != null">
+                and drivers_id = #{driversId}
+            </if>
+            <if test="passengerId != null">
+                and passenger_id = #{passengerId}
+            </if>
+        </where>
+    </select>
+
+</mapper>
